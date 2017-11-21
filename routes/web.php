@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('login');
 Route::get('/login', 'HomeController@login');
 
 Route::middleware(['auth'])->group(function () {
@@ -20,4 +20,6 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/select', 'UserController@selectCalendar');
 });
 
-Route::get('/{user}/schedule', 'ScheduleController@index');
+Route::get('/schedule/{user}/{eventType}/{start?}', 'ScheduleController@schedule')->name('schedule');
+Route::get('/book/{user}/{eventType}/{datetime}', 'ScheduleController@book')->name('book');
+Route::post('/book', 'ScheduleController@create')->name('create');

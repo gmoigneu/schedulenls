@@ -16,16 +16,11 @@ class CreateUsersTable extends Migration
             
             $table->increments('id');
             $table->string('email');
+            $table->string('slug');
             $table->string('first_name');
             $table->string('last_name');
             $table->text('token');
-            /*
-            id
-            email
-            first_name
-            last_name
-            token
-            */
+            $table->text('timezone')->default('Europe/Paris');
 
         });
     }
@@ -37,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::dropIfExists('users');
     }
 }

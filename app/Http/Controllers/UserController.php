@@ -32,26 +32,9 @@ class UserController extends Controller
     	if(!Auth::user()->calendars()->count()) {
     		return redirect('/select');
     	}
-
-    	$calendar = Auth::user()->calendars()->first();
-
-    	$freebusy_req = new \Google_Service_Calendar_FreeBusyRequest();
-    	$now = new \DateTime();
-		$freebusy_req->setTimeMin($now->format(\DateTime::ATOM));
-		$freebusy_req->setTimeMax($now->add(new \DateInterval('P7D'))->format(\DateTime::ATOM));
-		$freebusy_req->setTimeZone('Europe/Paris');
-		$item = new \Google_Service_Calendar_FreeBusyRequestItem();
-		$item->setId($calendar->calendar_id);
-		$freebusy_req->setItems([$item]);
-    	$freeBusy = $this->service->freebusy->query(
-    		$freebusy_req
-    	);
-
-    	$busy = $freeBusy->calendars[$calendar->calendar_id]->busy;
-    	dd($busy);
     	
         return view('dashboard', [
-        	'calendar' => $calendar
+            'eventTypes' => Auth::user()->eventTypes
         ]);
     }
 

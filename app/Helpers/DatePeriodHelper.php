@@ -11,12 +11,15 @@ class DatePeriodHelper extends \DatePeriod {
      * @param DatePeriod $period    The DatePeriod to compare $this to.
      * @return DateInterval        A DateInterval object expressing the overlap or (if negative) the distance between the DateRanges
      */
-    public function overlapsWithPeriod(\DatePeriod $period) {
+    public function overlapsWithPeriod(\DatePeriod $period, \Carbon\CarbonInterval $padding) {
+
+        $paddedEvent = new \DatePeriod($this->getStartDate()->sub($padding), $this->getDateInterval(), $this->getEndDate()->add($padding));
+
         // Figure out which is the later start time
-        $lastStart = $this->getStartDate() >= $period->getStartDate() ? $this->getStartDate() : $period->getStartDate();
+        $lastStart = $paddedEvent->getStartDate() >= $period->getStartDate() ? $paddedEvent->getStartDate() : $period->getStartDate();
 
         // Figure out which is the earlier end time
-        $firstEnd = $this->getEndDate() <= $period->getEndDate() ? $this->getEndDate() : $period->getEndDate();
+        $firstEnd = $paddedEvent->getEndDate() <= $period->getEndDate() ? $paddedEvent->getEndDate() : $period->getEndDate();
 
         // Subtract the two, divide by 60 to convert seconds to minutes, and round down
         $overlap = floor(($firstEnd->getTimestamp() - $lastStart->getTimestamp()) / 60);
