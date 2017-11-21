@@ -10,12 +10,16 @@
 	<p>No event types.</p>
 @else
 	<ul>
-	@foreach ($eventTypes as $eventType)
+		@foreach ($eventTypes as $eventType)
+			<li>
+				<p>{{ $eventType->name }} ({{ $eventType->duration }} minutes)
+				 - <a href="{{ $eventType->link }}">Event link</a>
+				(<a href="{{ route('eventtype.edit', ['eventtype' => $eventType]) }}">edit</a> - <a href="{{ route('eventtype.destroy', ['eventtype' => $eventType]) }}">delete</a>)</p>
+			</li>
+		@endforeach
 		<li>
-			<p>{{ $eventType->name }} ({{ $eventType->duration }} minutes)</p>
-			<p><a href="{{ $eventType->link }}">Event link</a></p>
+			<p><a href="{{ route('eventtype.create') }}">Create a new event type</a></p>
 		</li>
-	@endforeach
 	</ul>
 @endif
 

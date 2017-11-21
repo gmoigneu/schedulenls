@@ -178,7 +178,7 @@ class ScheduleHelper {
                 // Loop through the period and check if it overlaps an event
                 foreach ($period as $potentialEvent) {
                     $potentialEventEnd = clone($potentialEvent);
-                    $potentialEventEnd->add($eventType->duration);
+                    $potentialEventEnd->add(CarbonInterval::minutes($eventType->duration));
 
                     // Exit the loop if the event end time is out of the time range
                     if ($potentialEventEnd > $rangeEnd) {

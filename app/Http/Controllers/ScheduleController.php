@@ -54,9 +54,9 @@ class ScheduleController extends Controller
 
         // Check the event is available
         $eventStart = Carbon::instance($event);
-        $eventEnd = Carbon::instance($event)->add($eventType->duration);
-        $eventStartPadded = Carbon::instance($eventStart)->sub($eventType->padding);
-        $eventEndPadded = Carbon::instance($eventEnd)->add($eventType->padding);
+        $eventEnd = Carbon::instance($event)->add(CarbonInterval::minutes($eventType->duration));
+        $eventStartPadded = Carbon::instance($eventStart)->sub(CarbonInterval::minutes($eventType->padding));
+        $eventEndPadded = Carbon::instance($eventEnd)->add(CarbonInterval::minutes($eventType->padding));
 
         $scheduleHelper = new ScheduleHelper($user);
 
@@ -91,9 +91,9 @@ class ScheduleController extends Controller
 
         // Check the event is available
         $eventStart = Carbon::instance($event);
-        $eventEnd = Carbon::instance($event)->add($eventType->duration);
-        $eventStartPadded = Carbon::instance($eventStart)->sub($eventType->padding);
-        $eventEndPadded = Carbon::instance($eventEnd)->add($eventType->padding);
+        $eventEnd = Carbon::instance($event)->add(CarbonInterval::minutes($eventType->duration));
+        $eventStartPadded = Carbon::instance($eventStart)->sub(CarbonInterval::minutes($eventType->padding));
+        $eventEndPadded = Carbon::instance($eventEnd)->add(CarbonInterval::minutes($eventType->padding));
 
         $scheduleHelper = new ScheduleHelper($user);
 

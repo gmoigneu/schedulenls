@@ -23,7 +23,7 @@
 				@foreach ($events as $event)
 					<li>
 						<a href="{{ action('ScheduleController@book', ['user' => $user, 'eventType' => $eventType, 'datetime' => \Carbon\Carbon::instance($event->start)->toAtomString()]) }}">
-							{{ $event->start->format('H:i') }} to {{ $event->start->add($duration)->format('H:i') }}
+							{{ $event->start->format('H:i') }} to {{ $event->start->add(\Carbon\CarbonInterval::minutes($duration))->format('H:i') }}
 						</a>
 					</li>
 				@endforeach

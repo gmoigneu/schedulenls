@@ -11,7 +11,9 @@ class DatePeriodHelper extends \DatePeriod {
      * @param DatePeriod $period    The DatePeriod to compare $this to.
      * @return DateInterval        A DateInterval object expressing the overlap or (if negative) the distance between the DateRanges
      */
-    public function overlapsWithPeriod(\DatePeriod $period, \Carbon\CarbonInterval $padding) {
+    public function overlapsWithPeriod(\DatePeriod $period, $padding) {
+
+        $padding = \Carbon\CarbonInterval::minutes($padding);
 
         $paddedEvent = new \DatePeriod($this->getStartDate()->sub($padding), $this->getDateInterval(), $this->getEndDate()->add($padding));
 

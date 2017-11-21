@@ -37,20 +37,10 @@ class EventType extends Model {
 	    return 'slug';
 	}
 
-    public function getDurationAttribute($value)
-    {
-    	return \Carbon\CarbonInterval::minutes($value);
-    }
-
-    public function getPaddingAttribute($value)
-    {
-        return \Carbon\CarbonInterval::minutes($value);
-    }
-
     public function getLinkAttribute($value)
     {
     	return action(
-    		'ScheduleController@index',
+    		'ScheduleController@schedule',
     		[
     			'user' => $this->user,
     			'eventType' => $this,

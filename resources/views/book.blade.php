@@ -23,8 +23,8 @@
     <input type="hidden" name="eventType" value="{{ $eventType->slug }}" />
     <input type="hidden" name="start" value="{{ $start->toAtomString() }}" />
     <label for="name">Name:</label><input type="text" name="name" value="{{ old('name', '') }}"/>
-    <label for="name">Email:</label><input type="text" name="email"  value="{{ old('email', '') }}"/>
-    <label for="name">Organization:</label><input type="text" name="organization" value="{{ old('organization', '') }}"/>
+    <label for="email">Email:</label><input type="text" name="email"  value="{{ old('email', '') }}"/>
+    <label for="organization">Organization:</label><input type="text" name="organization" value="{{ old('organization', '') }}"/>
     <input type="submit">
 </form>
 
