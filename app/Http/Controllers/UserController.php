@@ -54,6 +54,7 @@ class UserController extends Controller
     	
     	$calendar = $this->service->calendarList->get($request->get('calendar'));
     	if ($calendar) {
+            $deletedRows = Calendar::where('user_id', Auth::user()->id)->delete();
 			Auth::user()->calendars()->create([
 			    'user_id' => Auth::user()->id,
 			    'calendar_id' => $calendar->id,

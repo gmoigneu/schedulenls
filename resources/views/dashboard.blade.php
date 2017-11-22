@@ -3,7 +3,7 @@
 @section('content')
 <h1>Hello.</h1>
 
-<p>Your calendar is {{ Auth::user()->calendars->first()->title }}</p>
+<p>Your calendar is {{ Auth::user()->calendars->first()->title }} (<a href="{{ route('select') }}">change</a>)</p>
 
 <h2>Event types</h2>
 @if (!count($eventTypes))
