@@ -63,6 +63,18 @@ class ScheduleHelper {
         ];
     }
 
+    public function refreshToken()
+    {
+        $refreshToken = json_decode($this->user->token)->refresh_token;
+        $newToken = $this->client->refreshToken($refreshToken);
+        $this->user->token = json_encode($newToken);
+        $this->user->save();
+        $this->google = new Google;
+        $this->client = $this->google->client();
+        $this->client->setAccessToken($newToken);
+        $this->service = new \Google_Service_Calendar($this->client);
+    }
+
     public function createEvent($start, $end, $name, $organization, $email, $eventType)
     {
         // Create the event
@@ -95,8 +107,9 @@ class ScheduleHelper {
         
         try {
             $event = $this->service->events->insert($calendarId, $event);
-        } catch (\Exception $e) {
-            abort(500, 'Something went terribly wrong');
+        } catch (\Google_Service_Exception $e) {
+            $this->refreshToken();
+            $event = $this->service->events->insert($calendarId, $event);
         }
 
         $userEvent = Event::create([
@@ -128,7 +141,12 @@ class ScheduleHelper {
         }
 
         $freeBusyRequest->setItems($calendars);
-        $freeBusy = $this->service->freebusy->query($freeBusyRequest);
+        try {
+            $freeBusy = $this->service->freebusy->query($freeBusyRequest);
+        } catch (\Google_Service_Exception $e) {
+            $this->refreshToken();
+            $freeBusy = $this->service->freebusy->query($freeBusyRequest);
+        }
 
         // Populate existing events
         $events = [];

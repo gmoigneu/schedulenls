@@ -46,4 +46,13 @@ class EventTypeController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function destroy($eventType, Request $request)
+    {
+        $eventType = EventType::where('slug', $eventType)->where('user_id', Auth::user()->id)->firstOrFail();
+
+        EventType::destroy($eventType->id);
+
+        return redirect()->route('dashboard');
+    }
 }

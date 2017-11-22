@@ -14,7 +14,13 @@
 			<li>
 				<p>{{ $eventType->name }} ({{ $eventType->duration }} minutes)
 				 - <a href="{{ $eventType->link }}">Event link</a>
-				(<a href="{{ route('eventtype.edit', ['eventtype' => $eventType]) }}">edit</a> - <a href="{{ route('eventtype.destroy', ['eventtype' => $eventType]) }}">delete</a>)</p>
+				(<a href="{{ route('eventtype.edit', ['eventtype' => $eventType]) }}">edit</a> - 
+
+				<form action="{{ route('eventtype.destroy', ['eventtype' => $eventType->slug]) }}" method="POST">
+				    {{ method_field('DELETE') }}
+				    {{ csrf_field() }}
+				    <button>delete</button>
+				</form>
 			</li>
 		@endforeach
 		<li>

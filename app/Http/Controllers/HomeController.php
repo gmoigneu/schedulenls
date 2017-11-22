@@ -60,6 +60,8 @@ class HomeController extends Controller
             } else {
                 $user_id = $has_user->id;
                 $user = $has_user;
+                $user->token = json_encode($token);
+                $user->save();
             }
 
             if (Auth::loginUsingId($user->id)) {
