@@ -20,10 +20,9 @@
 				</form>
 			</li>
 		@endforeach
-		<li>
-			<p><a href="{{ route('eventtype.create') }}">Create a new event type</a></p>
-		</li>
 	</ul>
 @endif
+
+<p class="mt-4"><a href="{{ route('eventtype.create') }}">Create a new event type</a></p>
 
 @stop
