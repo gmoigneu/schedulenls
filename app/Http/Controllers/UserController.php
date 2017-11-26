@@ -34,7 +34,7 @@ class UserController extends Controller
     	}
     	
         return view('dashboard', [
-            'eventTypes' => Auth::user()->eventTypes
+            'events' => Auth::user()->events
         ]);
     }
 
@@ -62,5 +62,11 @@ class UserController extends Controller
 			]);    		
 			return redirect('/dashboard');
     	}
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

@@ -1,31 +1,22 @@
-@extends('layouts.default')
+@extends('layouts.account')
 
 @section('content')
 <h1>Hello.</h1>
 
 <p>Your calendar is {{ Auth::user()->calendars->first()->title }} (<a href="{{ route('select') }}">change</a>)</p>
 
-<h2>Event types</h2>
-@if (!count($eventTypes))
-	<p>No event types.</p>
+<hr class="my-6"/>
+
+<h2>Scheduled Events</h2>
+@if (!count($events))
+	<p>No events.</p>
 @else
 	<ul>
-		@foreach ($eventTypes as $eventType)
+		@foreach ($events as $event)
 			<li>
-				<p>{{ $eventType->name }} ({{ $eventType->duration }} minutes)
-				 - <a href="{{ $eventType->link }}">Event link</a>
-				(<a href="{{ route('eventtype.edit', ['eventtype' => $eventType]) }}">edit</a> - 
-
-				<form action="{{ route('eventtype.destroy', ['eventtype' => $eventType->slug]) }}" method="POST">
-				    {{ method_field('DELETE') }}
-				    {{ csrf_field() }}
-				    <button>delete</button>
-				</form>
+				{{ \Carbon\Carbon::parse($event->start) }} ({{ \Carbon\CarbonInterval::minutes($event->eventType->duration) }}) with {{ $event->name }} ({{ $event->organization }})
 			</li>
 		@endforeach
-		<li>
-			<p><a href="{{ route('eventtype.create') }}">Create a new event type</a></p>
-		</li>
 	</ul>
 @endif
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Calendar;
 use App\EventType;
+use App\Guest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Carbon\Carbon;
@@ -11,9 +12,19 @@ use Carbon\CarbonInterval;
 use Illuminate\Support\Facades\Input;
 use App\Helpers\ScheduleHelper;
 use App\Http\Requests\StoreEvent;
+use App\Notifications\EventScheduled;
+use App\Notifications\EventGuestScheduled;
 
 class ScheduleController extends Controller
 {
+
+    public function types(User $user)
+    {
+        return view('types', [
+            'user' => $user,
+            'eventTypes' => $user->eventTypes,
+        ]);
+    }
 
     public function schedule(User $user, EventType $eventType, $start = null)
     {
@@ -111,9 +122,13 @@ class ScheduleController extends Controller
             $eventType->id
         );
 
+        $user->notify(new EventScheduled($event));
+        $event->notify(new EventGuestScheduled($event));
+
         // This slot is available
         return view('create', [
-            'event' => $event
+            'event' => $event,
+            'user' => $user
         ]);
     }
 }

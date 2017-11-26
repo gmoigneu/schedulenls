@@ -12,6 +12,14 @@ use App\Http\Requests\StoreEventType;
 
 class EventTypeController extends Controller
 {
+
+    public function index()
+    {
+        return view('event_type.index', [
+            'eventTypes' => Auth::user()->eventTypes
+        ]);
+    }
+
     public function create()
     {
         return view('event_type.create');

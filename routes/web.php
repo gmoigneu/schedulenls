@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('login');
 Route::get('/login', 'HomeController@login');
+Route::get('/logout', 'UserController@logout')->name('logout');
 
 Route::middleware(['auth'])->group(function () {
 	Route::get('/dashboard', 'UserController@index')->name('dashboard');
@@ -23,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('eventtype', 'EventTypeController');
 });
 
+Route::get('/schedule/{user}', 'ScheduleController@types')->name('types');
 Route::get('/schedule/{user}/{eventType}/{start?}', 'ScheduleController@schedule')->name('schedule');
 Route::get('/book/{user}/{eventType}/{datetime}', 'ScheduleController@book')->name('book');
 Route::post('/book', 'ScheduleController@create')->name('create');

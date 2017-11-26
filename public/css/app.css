@@ -1,17 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- *
- * You can see the styles here:
- * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
- *
- * If using `postcss-import`, you should import this line from it's own file:
- * 
- * @import "./tailwind-preflight.css";
- *
- * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
- */
-/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
@@ -506,31 +493,50 @@ button,
 [role=button] {
   cursor: pointer;
 }
-/**
- * Here you would add any of your custom component classes; stuff that you'd
- * want loaded *before* the utilities so that the utilities could still
- * override them.
- *
- * Example:
- *
- * .btn { ... }
- * .form-input { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "components/buttons";
- * @import "components/forms";
- */
-/**
- * This injects all of Tailwind's utility classes, generated based on your
- * config file.
- *
- * If using `postcss-import`, you should import this line from it's own file:
- * 
- * @import "./tailwind-utilities.css";
- *
- * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
- */
+
+a {
+  text-decoration: none;
+  color: #4546b0;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: .875rem;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.125rem;
+}
+
+body {
+  font-size: .875rem;
+}
+
+.btn-round {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-width: 1px;
+  display: block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: #4546b0;
+  font-weight: 600;
+  color: #b1b1de;
+  text-decoration: none;
+  border-width: 1px;
+  border-radius: 9999px;
+  text-align: center;
+}
+
+.btn-round:hover {
+  color: #ffffff;
+}
+
 .container {
   width: 100%;
 }
@@ -653,7 +659,7 @@ button,
 }
 
 .font-sans {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .font-serif {
@@ -941,12 +947,12 @@ button,
 
 .text-indigo,
 .hover\:text-indigo:hover {
-  color: #6574cd;
+  color: #4546b0;
 }
 
 .text-indigo-light,
 .hover\:text-indigo-light:hover {
-  color: #7886d7;
+  color: #b1b1de;
 }
 
 .text-indigo-lighter,
@@ -1465,12 +1471,12 @@ button,
 
 .bg-indigo,
 .hover\:bg-indigo:hover {
-  background-color: #6574cd;
+  background-color: #4546b0;
 }
 
 .bg-indigo-light,
 .hover\:bg-indigo-light:hover {
-  background-color: #7886d7;
+  background-color: #b1b1de;
 }
 
 .bg-indigo-lighter,
@@ -1974,12 +1980,12 @@ button,
 
 .border-indigo,
 .hover\:border-indigo:hover {
-  border-color: #6574cd;
+  border-color: #4546b0;
 }
 
 .border-indigo-light,
 .hover\:border-indigo-light:hover {
-  border-color: #7886d7;
+  border-color: #b1b1de;
 }
 
 .border-indigo-lighter,
@@ -3747,20 +3753,7 @@ button,
 .cursor-not-allowed {
   cursor: not-allowed;
 }
-/**
- * Here you would add any custom utilities you need that don't come out of the
- * box with Tailwind.
- *
- * Example :
- *
- * .bg-pattern-graph-paper { ... }
- * .skew-45 { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "utilities/background-patterns";
- * @import "utilities/skew-transforms";
- */
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
@@ -3856,7 +3849,7 @@ button,
   }
 
   .sm\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .sm\:font-serif {
@@ -4144,12 +4137,12 @@ button,
 
   .sm\:text-indigo,
   .sm\:hover\:text-indigo:hover {
-    color: #6574cd;
+    color: #4546b0;
   }
 
   .sm\:text-indigo-light,
   .sm\:hover\:text-indigo-light:hover {
-    color: #7886d7;
+    color: #b1b1de;
   }
 
   .sm\:text-indigo-lighter,
@@ -4668,12 +4661,12 @@ button,
 
   .sm\:bg-indigo,
   .sm\:hover\:bg-indigo:hover {
-    background-color: #6574cd;
+    background-color: #4546b0;
   }
 
   .sm\:bg-indigo-light,
   .sm\:hover\:bg-indigo-light:hover {
-    background-color: #7886d7;
+    background-color: #b1b1de;
   }
 
   .sm\:bg-indigo-lighter,
@@ -5177,12 +5170,12 @@ button,
 
   .sm\:border-indigo,
   .sm\:hover\:border-indigo:hover {
-    border-color: #6574cd;
+    border-color: #4546b0;
   }
 
   .sm\:border-indigo-light,
   .sm\:hover\:border-indigo-light:hover {
-    border-color: #7886d7;
+    border-color: #b1b1de;
   }
 
   .sm\:border-indigo-lighter,
@@ -7047,7 +7040,7 @@ button,
   }
 
   .md\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .md\:font-serif {
@@ -7335,12 +7328,12 @@ button,
 
   .md\:text-indigo,
   .md\:hover\:text-indigo:hover {
-    color: #6574cd;
+    color: #4546b0;
   }
 
   .md\:text-indigo-light,
   .md\:hover\:text-indigo-light:hover {
-    color: #7886d7;
+    color: #b1b1de;
   }
 
   .md\:text-indigo-lighter,
@@ -7859,12 +7852,12 @@ button,
 
   .md\:bg-indigo,
   .md\:hover\:bg-indigo:hover {
-    background-color: #6574cd;
+    background-color: #4546b0;
   }
 
   .md\:bg-indigo-light,
   .md\:hover\:bg-indigo-light:hover {
-    background-color: #7886d7;
+    background-color: #b1b1de;
   }
 
   .md\:bg-indigo-lighter,
@@ -8368,12 +8361,12 @@ button,
 
   .md\:border-indigo,
   .md\:hover\:border-indigo:hover {
-    border-color: #6574cd;
+    border-color: #4546b0;
   }
 
   .md\:border-indigo-light,
   .md\:hover\:border-indigo-light:hover {
-    border-color: #7886d7;
+    border-color: #b1b1de;
   }
 
   .md\:border-indigo-lighter,
@@ -10238,7 +10231,7 @@ button,
   }
 
   .lg\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .lg\:font-serif {
@@ -10526,12 +10519,12 @@ button,
 
   .lg\:text-indigo,
   .lg\:hover\:text-indigo:hover {
-    color: #6574cd;
+    color: #4546b0;
   }
 
   .lg\:text-indigo-light,
   .lg\:hover\:text-indigo-light:hover {
-    color: #7886d7;
+    color: #b1b1de;
   }
 
   .lg\:text-indigo-lighter,
@@ -11050,12 +11043,12 @@ button,
 
   .lg\:bg-indigo,
   .lg\:hover\:bg-indigo:hover {
-    background-color: #6574cd;
+    background-color: #4546b0;
   }
 
   .lg\:bg-indigo-light,
   .lg\:hover\:bg-indigo-light:hover {
-    background-color: #7886d7;
+    background-color: #b1b1de;
   }
 
   .lg\:bg-indigo-lighter,
@@ -11559,12 +11552,12 @@ button,
 
   .lg\:border-indigo,
   .lg\:hover\:border-indigo:hover {
-    border-color: #6574cd;
+    border-color: #4546b0;
   }
 
   .lg\:border-indigo-light,
   .lg\:hover\:border-indigo-light:hover {
-    border-color: #7886d7;
+    border-color: #b1b1de;
   }
 
   .lg\:border-indigo-lighter,
@@ -13429,7 +13422,7 @@ button,
   }
 
   .xl\:font-sans {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .xl\:font-serif {
@@ -13717,12 +13710,12 @@ button,
 
   .xl\:text-indigo,
   .xl\:hover\:text-indigo:hover {
-    color: #6574cd;
+    color: #4546b0;
   }
 
   .xl\:text-indigo-light,
   .xl\:hover\:text-indigo-light:hover {
-    color: #7886d7;
+    color: #b1b1de;
   }
 
   .xl\:text-indigo-lighter,
@@ -14241,12 +14234,12 @@ button,
 
   .xl\:bg-indigo,
   .xl\:hover\:bg-indigo:hover {
-    background-color: #6574cd;
+    background-color: #4546b0;
   }
 
   .xl\:bg-indigo-light,
   .xl\:hover\:bg-indigo-light:hover {
-    background-color: #7886d7;
+    background-color: #b1b1de;
   }
 
   .xl\:bg-indigo-lighter,
@@ -14750,12 +14743,12 @@ button,
 
   .xl\:border-indigo,
   .xl\:hover\:border-indigo:hover {
-    border-color: #6574cd;
+    border-color: #4546b0;
   }
 
   .xl\:border-indigo-light,
   .xl\:hover\:border-indigo-light:hover {
-    border-color: #7886d7;
+    border-color: #b1b1de;
   }
 
   .xl\:border-indigo-lighter,

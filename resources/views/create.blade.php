@@ -10,7 +10,7 @@
 
 <h2>Your event has been created !</h2>
 
-<p>You will be meeting {{ $event->user->email }} on:</p>
+<p class="m-4">You will be meeting {{ $event->user->email }} on:</p>
 
 <ul>
     <li>Start: {{ \Carbon\Carbon::parse($event->start)->toDayDateTimeString() }}</li>
@@ -18,6 +18,6 @@
     <li>Duration: {{ \App\Helpers\DateIntervalHelper::dateIntervalToMinutes($event->eventType->duration) }} minutes.</p>
 </ul>
 
-<p>An invite has been dispatched to your mailbox</p>
+<p>An invite has been dispatched to your mailbox.</p>
 
 @stop

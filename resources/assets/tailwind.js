@@ -107,8 +107,8 @@ var colors = {
   'indigo-darkest': '#191e38',
   'indigo-darker': '#2f365f',
   'indigo-dark': '#5661b3',
-  'indigo': '#6574cd',
-  'indigo-light': '#7886d7',
+  'indigo': '#4546B0',
+  'indigo-light': '#b1b1de',
   'indigo-lighter': '#b2b7ff',
   'indigo-lightest': '#e6e8ff',
 
@@ -194,6 +194,7 @@ module.exports = {
 
   fonts: {
     'sans': [
+      'Montserrat',
       '-apple-system',
       'BlinkMacSystemFont',
       'Segoe UI',
