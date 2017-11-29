@@ -5,7 +5,9 @@
 @endif
 
 @if($errors->any())
-    <div class="bg-red-lightest border-l-4 border-red text-red-dark p-2 my-4">
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>
         <ul class="list-reset">
             @foreach($errors->all() as $error)
                 <li>{{ $error }}</li>

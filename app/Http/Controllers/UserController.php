@@ -30,7 +30,31 @@ class UserController extends Controller
     	$this->init();
 
     	if(!Auth::user()->calendars()->count()) {
-    		return redirect('/select');
+			
+			$calendars = $this->service->calendarList->listCalendarList()->getItems();
+			// Filter only the user calendars
+			$calendars = array_filter(
+				$calendars,
+				function($value) {
+					return ($value['accessRole'] == 'owner');
+				}
+			);
+
+			if (count($calendars) == 1) {
+				// Only one calendar is writeable so we use that one
+				$calendar = array_pop($calendars);
+				Auth::user()->calendars()->create([
+					'user_id' => Auth::user()->id,
+					'calendar_id' => $calendar->id,
+					'title' => $calendar->summary
+				]);    
+			} else {
+				// Let the user select the correct one
+				return view('select', [
+					'calendars' => $calendars,
+					'currentCalendar' => null
+				]);
+			}
     	}
     	
         return view('dashboard', [
@@ -41,8 +65,22 @@ class UserController extends Controller
     public function showCalendars(Request $request) {
     	$this->init();
 
-    	$calendars = $this->service->calendarList->listCalendarList()->getItems();
-		return view('select', ['calendars' => $calendars]);
+		$calendars = $this->service->calendarList->listCalendarList()->getItems();
+		
+		// Filter only the user calendars
+		$calendars = array_filter(
+			$calendars,
+			function($value) {
+				return ($value['accessRole'] == 'owner');
+			}
+		);
+
+		$userCalendar = Auth::user()->calendars;
+		
+		return view('select', [
+			'calendars' => $calendars,
+			'currentCalendar' => ($userCalendar->count()) ? $userCalendar->first()->calendar_id : null
+		]);
     }
 
     public function selectCalendar(Request $request) {
@@ -62,7 +100,13 @@ class UserController extends Controller
 			]);    		
 			return redirect('/dashboard');
     	}
-    }
+	}
+	
+	public function archiveNotifications(Request $request)
+	{
+		Auth::user()->unreadNotifications->markAsRead();
+		return redirect()->back();
+	}
 
     public function logout(Request $request)
     {

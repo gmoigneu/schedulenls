@@ -61,7 +61,7 @@ class EventScheduled extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'event' => $this->event
         ];
     }
 }

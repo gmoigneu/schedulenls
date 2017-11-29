@@ -11,12 +11,12 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js');
+//mix.js('resources/assets/js/app.js', 'public/js');
 
 var tailwindcss = require('tailwindcss');
-
-mix.sass('resources/assets/sass/app.scss', 'public/css')
-  .options({
-    processCssUrls: false,
-  	postCss: [ tailwindcss('./resources/assets/tailwind.js') ],
-  });
+mix.copyDirectory('resources/assets/plugins', 'public/plugins');
+mix.copyDirectory('resources/assets/images', 'public/images');
+mix.copyDirectory('resources/assets/js', 'public/js');
+mix.sass('resources/assets/scss/style.scss', 'public/css');
+mix.sass('resources/assets/scss/pages/dashboard4.scss', 'public/css');
+mix.sass('resources/assets/scss/colors/blue.scss', 'public/css');

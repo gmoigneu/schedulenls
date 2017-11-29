@@ -48,8 +48,9 @@ class EventTypeController extends Controller
     
     public function update(StoreEventType $request)
     {
-        $eventType = EventType::where('slug', $request->get('slug'))->where('user_id', Auth::user()->id)->firstOrFail();
 
+        $eventType = EventType::where('id', $request->get('eventType'))->where('user_id', Auth::user()->id)->firstOrFail();
+        
         $eventType->update($request->all());
 
         return redirect()->route('dashboard');
