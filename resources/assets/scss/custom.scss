@@ -9,3 +9,20 @@
     height: 40px;
     width: auto;
 }
+
+#schedule {
+    h3 {
+        margin: auto;
+        text-align: center;
+    }
+    h3.unavailable {
+        color: #aaa;
+    }
+    .slot {
+        padding: 20px 0;
+        text-align: center;
+        &:hover {
+            box-shadow: $default-shadow-hover;
+        }
+    }
+}

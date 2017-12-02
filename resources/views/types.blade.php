@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-	Your event types
+	Event types
 @endsection
 
 @section('breadcrumb')
@@ -17,25 +17,18 @@
 @endif
 
 <div class="row">
-	<div class="col-12">
-		<div class="card">
-			<div class="card-body">
-				@if (count($eventTypes))
-					<p class="my-4">Choose the type of event you want:</p>
-					<ul class="list-reset">
-					@foreach ($eventTypes as $eventType)
-						<li>
-							<a class="flex justify-center border block hover:bg-indigo hover:border-indigo my-2 p-4 text-indigo no-underline hover:text-white" href="{{ route('schedule', ['user' => $user, 'eventType' => $eventType, 'start' => null]) }}">
-								{{ $eventType->name }} ({{ \Carbon\CarbonInterval::minutes($eventType->duration) }})
-							</a>
-						</li>
-					@endforeach
-					</ul>
-				@else
-					<p>This user has not yet configured his account.</p>
-				@endif
+	@if (count($eventTypes))
+		@foreach ($eventTypes as $eventType)
+			<div class="col-lg-4 col-md-6 col-xlg-2 col-xs-12">
+				<a href="{{ route('schedule', ['user' => $user, 'eventType' => $eventType, 'start' => null]) }}" class="ribbon-wrapper card">
+					<div class="ribbon ribbon-success">{{ \Carbon\CarbonInterval::minutes($eventType->duration) }}</div>
+					<p class="ribbon-content">{{ $eventType->name }}</p>
+				</a>
 			</div>
-		</div>
-	</div>
+		@endforeach
+	@else
+		<p>This user has not yet configured his account.</p>
+	@endif
+	
 </div>
 @stop

@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('slug');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('remember_token');
             $table->text('token');
             $table->text('timezone')->default('Europe/Paris');
 

@@ -144,23 +144,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ Gravatar::get(Auth::user()->email) }}" alt="user" class="profile-pic" /></a>
-                            <div class="dropdown-menu dropdown-menu-right animated flipInY">
-                                <ul class="dropdown-user">
-                                    <li>
-                                        <div class="dw-user-box">
-                                            <div class="u-text">
-                                                <h4>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</h4>
-                                                <p class="text-muted">{{ Auth::user()->email }}</p></div>
-                                        </div>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <!--<li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
-                                    <li role="separator" class="divider"></li>-->
-                                    <li><a href="{{ route('logout') }}"><i class="fa fa-power-off"></i> Logout</a></li>
-                                </ul>
-                            </div>
+                            @include('partials.user-dropdown')
                         </li>
                     </ul>
                 </div>
@@ -261,15 +245,6 @@
     <script src="{{ url('plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
     <!--sparkline JavaScript -->
     <script src="{{ url('plugins/sparkline/jquery.sparkline.min.js') }}"></script>
-    <!--morris JavaScript -->
-    <script src="{{ url('plugins/chartist-js/dist/chartist.min.js') }}"></script>
-    <script src="{{ url('plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js') }}"></script>
-    <!-- Chart JS -->
-    <script src="{{ url('js/dashboard4.js') }}"></script>
-    <!-- ============================================================== -->
-    <!-- Style switcher -->
-    <!-- ============================================================== -->
-    <script src="{{ url('plugins/styleswitcher/jQuery.style.switcher.js') }}"></script>
 </body>
 
 </html>
