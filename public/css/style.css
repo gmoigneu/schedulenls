@@ -10484,7 +10484,1104 @@ ribbons page
   border-bottom-color: #263238;
 }
 
-/*@import 'widgets/widgets';*/
+/*
+Template Name: Admin Pro Admin
+Author: Wrappixel
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+
+/*
+Template Name: Admin Pro Admin
+Author: Wrappixel
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+
+/*******************
+/*User mail widgets*/
+
+/*******************/
+
+.topbar .top-navbar .mailbox {
+  width: 300px;
+}
+
+.topbar .top-navbar .mailbox ul {
+  padding: 0px;
+}
+
+.topbar .top-navbar .mailbox ul li {
+  list-style: none;
+}
+
+.mailbox ul li .drop-title {
+  font-weight: 500;
+  padding: 11px 20px 15px;
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+}
+
+.mailbox ul li .nav-link {
+  border-top: 1px solid rgba(120, 130, 140, 0.13);
+  padding-top: 15px;
+}
+
+.mailbox .message-center {
+  height: 200px;
+  overflow: auto;
+  position: relative;
+}
+
+.mailbox .message-center a {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  display: block;
+  text-decoration: none;
+  padding: 9px 15px;
+}
+
+.mailbox .message-center a:hover {
+  background: #e9edf2;
+}
+
+.mailbox .message-center a div {
+  white-space: normal;
+}
+
+.mailbox .message-center a .user-img {
+  width: 40px;
+  position: relative;
+  display: inline-block;
+  margin: 0 10px 15px 0;
+}
+
+.mailbox .message-center a .user-img img {
+  width: 100%;
+}
+
+.mailbox .message-center a .user-img .profile-status {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  left: 30px;
+  position: absolute;
+  top: 1px;
+  width: 10px;
+}
+
+.mailbox .message-center a .user-img .online {
+  background: #06d79c;
+}
+
+.mailbox .message-center a .user-img .busy {
+  background: #ef5350;
+}
+
+.mailbox .message-center a .user-img .away {
+  background: #ffb22b;
+}
+
+.mailbox .message-center a .user-img .offline {
+  background: #ffb22b;
+}
+
+.mailbox .message-center a .mail-contnet {
+  display: inline-block;
+  width: 75%;
+  vertical-align: middle;
+}
+
+.mailbox .message-center a .mail-contnet h5 {
+  margin: 5px 0px 0;
+}
+
+.mailbox .message-center a .mail-contnet .mail-desc,
+.mailbox .message-center a .mail-contnet .time {
+  font-size: 12px;
+  display: block;
+  margin: 1px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #67757c;
+  white-space: nowrap;
+}
+
+/*******************/
+
+/*Weather*/
+
+/*******************/
+
+.city-weather-days {
+  margin: 0px;
+}
+
+.city-weather-days li {
+  text-align: center;
+  padding: 15px 0;
+}
+
+.city-weather-days li span {
+  display: block;
+  padding: 10px 0 0;
+  color: #99abb4;
+}
+
+.city-weather-days li i {
+  display: block;
+  font-size: 20px;
+  color: #398bf7;
+}
+
+.city-weather-days li h3 {
+  font-weight: 300;
+  margin-top: 5px;
+}
+
+/*Weather small*/
+
+.weather-small h1 {
+  line-height: 30px;
+}
+
+.weather-small sup {
+  font-size: 60%;
+}
+
+/*******************/
+
+/*Comment widgets*/
+
+/*******************/
+
+.comment-widgets {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.comment-widgets .comment-row {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  padding: 15px;
+}
+
+.comment-widgets .comment-row:last-child {
+  border-bottom: 0px;
+}
+
+.comment-widgets .comment-row:hover,
+.comment-widgets .comment-row.active {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.comment-text {
+  padding: 15px 15px 15px 20px;
+  width: 80%;
+}
+
+.comment-text:hover .comment-footer .action-icons,
+.comment-text.active .comment-footer .action-icons {
+  visibility: visible;
+}
+
+.comment-text p {
+  max-height: 50px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.comment-footer .action-icons {
+  visibility: hidden;
+}
+
+.comment-footer .action-icons a {
+  padding-left: 7px;
+  vertical-align: middle;
+  color: #99abb4;
+}
+
+.comment-footer .action-icons a:hover,
+.comment-footer .action-icons a.active {
+  color: #398bf7;
+}
+
+/*******************/
+
+/*To do widgets*/
+
+/*******************/
+
+.todo-list li {
+  border: 0px;
+  margin-bottom: 0px;
+  padding: 20px 15px 15px 0px;
+}
+
+.todo-list li .checkbox {
+  width: 100%;
+}
+
+.todo-list li .checkbox label {
+  font-weight: 400;
+  color: #455a64;
+  width: 100%;
+}
+
+.todo-list li:last-child {
+  border-bottom: 0px;
+}
+
+.todo-list li .assignedto {
+  padding: 0px 0 0 27px;
+  margin: 0px;
+}
+
+.todo-list li .assignedto li {
+  list-style: none;
+  padding: 0px;
+  display: inline-block;
+  border: 0px;
+  margin-right: 2px;
+}
+
+.todo-list li .assignedto li img {
+  width: 30px;
+  border-radius: 100%;
+}
+
+.todo-list li .item-date {
+  padding-left: 25px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.list-task .task-done span {
+  text-decoration: line-through;
+}
+
+/*******************/
+
+/*Chat widget*/
+
+/*******************/
+
+.chat-list {
+  margin: 0px;
+  padding: 0px;
+}
+
+.chat-list li {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.chat-list li .chat-img {
+  display: inline-block;
+  width: 45px;
+  vertical-align: top;
+}
+
+.chat-list li .chat-img img {
+  width: 45px;
+  border-radius: 100%;
+}
+
+.chat-list li .chat-content {
+  width: calc(100% - 140px);
+  display: inline-block;
+  padding-left: 15px;
+}
+
+.chat-list li .chat-content h5 {
+  color: #99abb4;
+}
+
+.chat-list li .chat-content .box {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #263238;
+}
+
+.chat-list li .chat-time {
+  display: inline-block;
+  text-align: right;
+  width: 80px;
+  font-size: 13px;
+  color: #99abb4;
+}
+
+.chat-list li.odd .chat-content {
+  text-align: right;
+  width: calc(100% - 90px);
+}
+
+.chat-list li.odd .box {
+  clear: both;
+}
+
+.chat-list li.odd + .odd {
+  margin-top: 0px;
+}
+
+.chat-list li.reverse {
+  text-align: right;
+}
+
+.chat-list li.reverse .chat-time {
+  text-align: left;
+}
+
+.chat-list li.reverse .chat-content {
+  padding-left: 0px;
+  padding-right: 15px;
+}
+
+/*******************/
+
+/*Chat widget*/
+
+/*******************/
+
+.message-box ul li .drop-title {
+  font-weight: 500;
+  padding: 11px 20px 15px;
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+}
+
+.message-box ul li .nav-link {
+  border-top: 1px solid rgba(120, 130, 140, 0.13);
+  padding-top: 15px;
+}
+
+.message-box .message-widget {
+  position: relative;
+}
+
+.message-box .message-widget a {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  display: block;
+  text-decoration: none;
+  padding: 9px 15px;
+}
+
+.message-box .message-widget a:hover {
+  background: #e9edf2;
+}
+
+.message-box .message-widget a:last-child {
+  border-bottom: 0px;
+}
+
+.message-box .message-widget a div {
+  white-space: normal;
+}
+
+.message-box .message-widget a .user-img {
+  width: 45px;
+  position: relative;
+  display: inline-block;
+  margin: 0 10px 15px 0;
+}
+
+.message-box .message-widget a .user-img img {
+  width: 100%;
+}
+
+.message-box .message-widget a .user-img .profile-status {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  left: 33px;
+  position: absolute;
+  top: -1px;
+  width: 10px;
+}
+
+.message-box .message-widget a .user-img .online {
+  background: #06d79c;
+}
+
+.message-box .message-widget a .user-img .busy {
+  background: #ef5350;
+}
+
+.message-box .message-widget a .user-img .away {
+  background: #ffb22b;
+}
+
+.message-box .message-widget a .user-img .offline {
+  background: #ffb22b;
+}
+
+.message-box .message-widget a .mail-contnet {
+  display: inline-block;
+  width: 70%;
+  vertical-align: middle;
+}
+
+.message-box .message-widget a .mail-contnet h5 {
+  margin: 5px 0px 0;
+}
+
+.message-box .message-widget a .mail-contnet .mail-desc,
+.message-box .message-widget a .mail-contnet .time {
+  font-size: 12px;
+  display: block;
+  margin: 1px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #67757c;
+  white-space: nowrap;
+}
+
+/*******************/
+
+/*Calendar widget*/
+
+/*******************/
+
+.calendar {
+  float: left;
+  margin-bottom: 0px;
+}
+
+.fc-view {
+  margin-top: 30px;
+}
+
+.none-border .modal-footer {
+  border-top: none;
+}
+
+.fc-toolbar {
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+.fc-toolbar h2 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+.fc-day {
+  background: #ffffff;
+}
+
+.fc-toolbar .fc-state-active,
+.fc-toolbar .ui-state-active,
+.fc-toolbar button:focus,
+.fc-toolbar button:hover,
+.fc-toolbar .ui-state-hover {
+  z-index: 0;
+}
+
+.fc-widget-header {
+  border: 0px !important;
+}
+
+.fc-widget-content {
+  border-color: rgba(120, 130, 140, 0.13) !important;
+}
+
+.fc th.fc-widget-header {
+  color: #67757c;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+  padding: 7px 0px;
+  text-transform: uppercase;
+}
+
+.fc th.fc-sun,
+.fc th.fc-tue,
+.fc th.fc-thu,
+.fc th.fc-sat {
+  background: #f2f7f8;
+}
+
+.fc th.fc-mon,
+.fc th.fc-wed,
+.fc th.fc-fri {
+  background: #f2f7f8;
+}
+
+.fc-view {
+  margin-top: 0px;
+}
+
+.fc-toolbar {
+  margin: 0px;
+  padding: 24px 0px;
+}
+
+.fc-button {
+  background: #ffffff;
+  border: 1px solid rgba(120, 130, 140, 0.13);
+  color: #67757c;
+  text-transform: capitalize;
+}
+
+.fc-button:hover {
+  background: #e9edf2;
+  opacity: 0.8;
+}
+
+.fc-text-arrow {
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.fc-state-hover {
+  background: #F5F5F5;
+}
+
+.fc-unthemed .fc-today {
+  border: 1px solid #ef5350;
+  background: #e9edf2 !important;
+}
+
+.fc-state-highlight {
+  background: #f0f0f0;
+}
+
+.fc-cell-overlay {
+  background: #f0f0f0;
+}
+
+.fc-unthemed .fc-today {
+  background: #ffffff;
+}
+
+.fc-event {
+  border-radius: 0px;
+  border: none;
+  cursor: move;
+  color: #ffffff !important;
+  font-size: 13px;
+  margin: 1px -1px 0 -1px;
+  padding: 5px 5px;
+  text-align: center;
+  background: #398bf7;
+}
+
+.calendar-event {
+  cursor: move;
+  margin: 10px 5px 0 0;
+  padding: 6px 10px;
+  display: inline-block;
+  color: #ffffff;
+  min-width: 140px;
+  text-align: center;
+  background: #398bf7;
+}
+
+.calendar-event a {
+  float: right;
+  opacity: 0.6;
+  font-size: 10px;
+  margin: 4px 0 0 10px;
+  color: #ffffff;
+}
+
+.fc-basic-view td.fc-week-number span {
+  padding-right: 5px;
+}
+
+.fc-basic-view .fc-day-number {
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+/*******************/
+
+/*Steam line widget*/
+
+/*******************/
+
+.steamline {
+  position: relative;
+  border-left: 1px solid rgba(120, 130, 140, 0.13);
+  margin-left: 20px;
+}
+
+.steamline .sl-left {
+  float: left;
+  margin-left: -20px;
+  z-index: 1;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  height: 40px;
+  border-radius: 100%;
+  color: #ffffff;
+  background: #263238;
+  margin-right: 15px;
+}
+
+.steamline .sl-left img {
+  max-width: 40px;
+}
+
+.steamline .sl-right {
+  padding-left: 50px;
+}
+
+.steamline .sl-right .desc,
+.steamline .sl-right .inline-photos {
+  margin-bottom: 30px;
+}
+
+.steamline .sl-item {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  margin: 20px 0;
+}
+
+.sl-date {
+  font-size: 10px;
+  color: #99abb4;
+}
+
+.time-item {
+  border-color: rgba(120, 130, 140, 0.13);
+  padding-bottom: 1px;
+  position: relative;
+}
+
+.time-item:before {
+  content: " ";
+  display: table;
+}
+
+.time-item:after {
+  background-color: #ffffff;
+  border-color: rgba(120, 130, 140, 0.13);
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  bottom: 0;
+  content: '';
+  height: 14px;
+  left: 0;
+  margin-left: -8px;
+  position: absolute;
+  top: 5px;
+  width: 14px;
+}
+
+.time-item-item:after {
+  content: " ";
+  display: table;
+}
+
+.item-info {
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+.item-info p {
+  margin-bottom: 10px !important;
+}
+
+/*******************/
+
+/*Feed widget*/
+
+/*******************/
+
+.feeds {
+  margin: 0px;
+  padding: 0px;
+}
+
+.feeds li {
+  list-style: none;
+  padding: 10px;
+  display: block;
+}
+
+.feeds li:hover {
+  background: #ebf3f5;
+}
+
+.feeds li > div {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 100%;
+}
+
+.feeds li > div i {
+  line-height: 40px;
+}
+
+.feeds li span {
+  float: right;
+  width: auto;
+  font-size: 12px;
+}
+
+/*******************/
+
+/*Vertical carousel*/
+
+/*******************/
+
+.vert .carousel-item-next.carousel-item-left,
+.vert .carousel-item-prev.carousel-item-right {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.vert .carousel-item-next,
+.vert .active.carousel-item-right {
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100% 0);
+}
+
+.vert .carousel-item-prev,
+.vert .active.carousel-item-left {
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+
+/*******************/
+
+/*social-widgets*/
+
+/*******************/
+
+.social-widget .soc-header {
+  padding: 15px;
+  text-align: center;
+  font-size: 36px;
+  color: #fff;
+}
+
+.social-widget .soc-header.box-facebook {
+  background: #3b5998;
+}
+
+.social-widget .soc-header.box-twitter {
+  background: #00aced;
+}
+
+.social-widget .soc-header.box-google {
+  background: #f86c6b;
+}
+
+.social-widget .soc-header.box-linkedin {
+  background: #4875b4;
+}
+
+.social-widget .soc-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.social-widget .soc-content div {
+  padding: 10px;
+}
+
+.social-widget .soc-content div h3 {
+  margin-bottom: 0px;
+}
+
+/*******************/
+
+/*social-profile-first*/
+
+/*******************/
+
+.social-profile-first {
+  text-align: center;
+  padding-top: 22%;
+  margin-bottom: 96px;
+}
+
+.social-profile-first.bg-over {
+  background: rgba(56, 83, 161, 0.7);
+}
+
+.social-profile-first .middle {
+  vertical-align: middle;
+}
+
+/*******************/
+
+/*profile timeline widget*/
+
+/*******************/
+
+.profiletimeline {
+  position: relative;
+  padding-left: 40px;
+  margin-right: 10px;
+  border-left: 1px solid rgba(120, 130, 140, 0.13);
+  margin-left: 30px;
+}
+
+.profiletimeline .sl-left {
+  float: left;
+  margin-left: -60px;
+  z-index: 1;
+  margin-right: 15px;
+}
+
+.profiletimeline .sl-left img {
+  max-width: 40px;
+}
+
+.profiletimeline .sl-item {
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
+
+.profiletimeline .sl-date {
+  font-size: 12px;
+  color: #99abb4;
+}
+
+.profiletimeline .time-item {
+  border-color: rgba(120, 130, 140, 0.13);
+  padding-bottom: 1px;
+  position: relative;
+}
+
+.profiletimeline .time-item:before {
+  content: " ";
+  display: table;
+}
+
+.profiletimeline .time-item:after {
+  background-color: #ffffff;
+  border-color: rgba(120, 130, 140, 0.13);
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  bottom: 0;
+  content: '';
+  height: 14px;
+  left: 0;
+  margin-left: -8px;
+  position: absolute;
+  top: 5px;
+  width: 14px;
+}
+
+.profiletimeline .time-item-item:after {
+  content: " ";
+  display: table;
+}
+
+.profiletimeline .item-info {
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+
+.profiletimeline .item-info p {
+  margin-bottom: 10px !important;
+}
+
+/*little-profile*/
+
+.little-profile .pro-img {
+  margin-bottom: 20px;
+}
+
+.little-profile .pro-img img {
+  width: 128px;
+  height: 128px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 100%;
+}
+
+.little-profile .soc-pro a {
+  color: #99abb4;
+}
+
+.little-profile .soc-pro a:hover {
+  color: #263238;
+}
+
+/*******************
+/*States row*/
+
+/*******************/
+
+.stats-row {
+  margin-bottom: 20px;
+}
+
+.stats-row .stat-item {
+  display: inline-block;
+  padding-right: 15px;
+}
+
+.stats-row .stat-item + .stat-item {
+  padding-left: 15px;
+  border-left: 1px solid rgba(120, 130, 140, 0.13);
+}
+
+/*******************/
+
+/*Guage chart*/
+
+/*******************/
+
+.gaugejs-box {
+  position: relative;
+  margin: 0 auto;
+}
+
+.gaugejs-box canvas.gaugejs {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/*******************/
+
+/*country-state*/
+
+/*******************/
+
+.country-state {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 10px;
+}
+
+.country-state li {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.country-state h2 {
+  margin-bottom: 0px;
+  font-weight: 400;
+}
+
+/*contact widgets*/
+
+.contact-box {
+  position: relative;
+}
+
+.contact-box .add-ct-btn {
+  position: absolute;
+  right: 4px;
+  top: -46px;
+}
+
+.contact-box .contact-widget > a {
+  padding: 15px 10px;
+}
+
+.contact-box .contact-widget > a .user-img {
+  margin-bottom: 0px !important;
+}
+
+/*Blog widgets*/
+
+.blog-widget {
+  margin-top: 30px;
+}
+
+.blog-widget .blog-image img {
+  border-radius: 4px;
+  margin-top: -45px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/*******************/
+
+/*Msg box*/
+
+/*******************/
+
+.msg-item {
+  margin-bottom: 20px;
+}
+
+.msg-body {
+  background: #ffffff;
+  padding: 15px;
+  font-size: 14px;
+  position: relative;
+}
+
+.msg-body .dwn-aro {
+  width: 0;
+  position: absolute;
+  bottom: -8px;
+  height: 0;
+  left: 10px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #ffffff;
+}
+
+.m-pic img {
+  width: 40px;
+  border-radius: 100%;
+}
+
+/*******************/
+
+/*Activity widgets*/
+
+/*******************/
+
+.activity-box .date-devider {
+  border-top: 2px solid rgba(120, 130, 140, 0.13);
+  position: relative;
+}
+
+.activity-box .date-devider span {
+  background: #e9edf2;
+  padding: 5px 15px;
+  border-radius: 60px;
+  font-size: 14px;
+  top: -15px;
+  position: relative;
+  margin-left: 20px;
+}
+
+.activity-box .activity-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.activity-box .activity-item .image-list > a {
+  margin-left: -15px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.activity-box .activity-item .image-list > a:first-child,
+.activity-box .activity-item .image-list > a:last-child {
+  margin-left: 0px;
+}
+
+.activity-box .activity-item .image-list > a:hover {
+  z-index: 10;
+}
+
+.activity-box .activity-item .image-list > a:hover img {
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
 
 /*
 Template Name: Admin Pro Admin
