@@ -25,6 +25,8 @@ Route::get('/logout', 'UserController@logout')->name('logout');
 Route::middleware(['auth'])->group(function () {
 	Route::get('/dashboard', 'UserController@index')->name('dashboard');
 	Route::get('/select', 'UserController@showCalendars')->name('select');
+	Route::get('/settings', 'UserController@showSettings')->name('settings');
+	Route::post('/settings/slug', 'UserController@updateSlug')->name('settings-slug');
 	Route::post('/select', 'UserController@selectCalendar')->name('submit-select');
 	Route::get('/archive', 'UserController@archiveNotifications')->name('archive');
 	Route::resource('eventtype', 'EventTypeController');

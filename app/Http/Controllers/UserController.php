@@ -6,6 +6,7 @@ use App\User;
 use App\Calendar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\SettingsSlug;
 
 
 class UserController extends Controller
@@ -112,5 +113,20 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect()->route('login');
-    }
+	}
+	
+	public function showSettings()
+	{
+		return view('settings', [
+			'user' => Auth::user()
+		]);
+	}
+
+	public function updateSlug(SettingsSlug $request)
+	{
+		Auth::user()->slug = $request->get('slug');
+		Auth::user()->save();
+
+		return redirect()->route('settings');
+	}
 }

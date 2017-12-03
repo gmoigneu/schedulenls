@@ -165,6 +165,7 @@
                         <li> <a class="has-arrow waves-effect waves-dark" href="{{ route('dashboard') }}" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="{{ route('select') }}" aria-expanded="false"><i class="mdi mdi-calendar-multiple-check"></i><span class="hide-menu">Calendars</span></a></li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="{{ route('eventtype.index') }}" aria-expanded="false"><i class="mdi mdi-buffer"></i><span class="hide-menu">Event types</span></a></li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="{{ route('settings') }}" aria-expanded="false"><i class="mdi mdi-account-settings"></i><span class="hide-menu">Settings</span></a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

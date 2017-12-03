@@ -10,10 +10,11 @@
             </div>
         </li>
         <li role="separator" class="divider"></li>
-        <li><a href="{{ route('dashboard') }}"><i class="ti-panel"></i> Dashboard</a></li>
+        <li><a href="{{ route('dashboard') }}"><i class="mdi mdi-tune"></i> Dashboard</a></li>
+        <li><a href="{{ route('settings') }}"><i class="mdi mdi-account-settings"></i> Settings</a></li>
         <!--<li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
         <li role="separator" class="divider"></li>-->
-        <li><a href="{{ route('logout') }}"><i class="fa fa-power-off"></i> Logout</a></li>
+        <li><a href="{{ route('logout') }}"><i class="mdi mdi-power"></i> Logout</a></li>
     </ul>
 </div>
 @else

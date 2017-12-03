@@ -17,10 +17,6 @@
 				@if (!count($eventTypes))
 					<p>No event types.</p>
 				@else
-					<ul>
-						
-					</ul>
-
 					<div class="table-responsive">
 						<table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
 							<thead>
