@@ -230,4 +230,6 @@ return [
         'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
     ],
 
+    'domain' => env('APP_DOMAIN', 'localhost'),
+
 ];

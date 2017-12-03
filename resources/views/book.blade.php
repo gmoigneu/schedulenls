@@ -33,7 +33,7 @@
 			<div class="card-body">
                 <p class="my-4">Please fill the following form to validate:</p>
 
-                <form method="POST" class="form-material" action="{{ route('create') }}">
+                <form method="POST" class="form-material" action="{{ route('create', ['user' => $user]) }}">
                     {{ csrf_field() }}
                     
                     <input type="hidden" name="user" value="{{ $user->slug }}" />

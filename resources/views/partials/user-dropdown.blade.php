@@ -17,5 +17,5 @@
     </ul>
 </div>
 @else
-<a class="nav-link waves-effect waves-dark" href="{{ route('login') }}" >Login</a>
+<a class="nav-link waves-effect waves-dark" href="{{ config('app.url') }}" >Login</a>
 @endif
