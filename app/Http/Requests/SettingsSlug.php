@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class SettingsSlug extends FormRequest
 {
@@ -27,6 +28,7 @@ class SettingsSlug extends FormRequest
         return [
             'slug' => [
                 'required',
+                Rule::unique('users')->ignore(Auth::user()->id),
                 'alpha_dash',
                 'regex:/^[a-z0-9]*$/',
                 'max:20',
