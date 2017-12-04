@@ -10,8 +10,10 @@ use Illuminate\Http\Response;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Cookie;
 use App\Helpers\ScheduleHelper;
 use App\Http\Requests\StoreEvent;
+use App\Http\Requests\TimezoneRequest;
 use App\Notifications\EventScheduled;
 use App\Notifications\EventGuestScheduled;
 
@@ -26,32 +28,57 @@ class ScheduleController extends Controller
         ]);
     }
 
+    public function setTimezone(User $user, EventType $eventType, $start = null, TimezoneRequest $request)
+    {
+        Cookie::queue('timezone', Input::get('timezone'), 1440);
+        return redirect()->route('schedule', ['user' => $user, 'eventType' => $eventType, 'start' => $start]);
+    }
+
     public function schedule(User $user, EventType $eventType, $start = null)
     {
+
+        if(Cookie::get('timezone')) {
+            $timezone = Cookie::get('timezone');
+        } else {
+            $timezone = $user->timezone;
+        }
+
         // Init date range
     	try {
             $start = (!is_null($start)) ? new Carbon($start, $user->timezone) : Carbon::today($user->timezone);
         } catch (\Exception $e) {
             abort(421, 'Wrong parameter');
         }
-        $end = Carbon::instance($start);
+        $end = Carbon::instance($start, $user->timezone);
         $end->addDays(7);
     
         $scheduleHelper = new ScheduleHelper($user);
-        $availableEvents = $scheduleHelper->getAvailableEvents($eventType, $start, $end);
 
-    	$next = Carbon::instance($start, $user->timezone)->addDays(7)->format('Y-m-d');
-        $previous = Carbon::instance($start, $user->timezone)->subDays(7)->format('Y-m-d');
+        $placeholders = new \DatePeriod($start, new \DateInterval('P1D'), $end);
+        foreach ($placeholders as $placeholder) {
+            $events[$placeholder->format('Y-m-d')] = null;
+        }
+
+        $availableEvents = $scheduleHelper->getAvailableEvents($eventType, $start, $end);
+        foreach($availableEvents as $e) {
+            $event = Carbon::instance($e->start)->setTimezone($timezone);
+            $events[$event->format('Y-m-d')][] = $event;
+        }
+
+    	$next = Carbon::instance($start, $timezone)->addDays(7)->format('Y-m-d');
+        $previous = Carbon::instance($start, $timezone)->subDays(7)->format('Y-m-d');
 
         return view('schedule', [
             'user' => $user,
+            'timezone' => $timezone,
+            'timezones' => \DateTimeZone::listIdentifiers(\DateTimeZone::ALL),
             'eventType' => $eventType,
             'start' => $start,
             'end' => $end,
-        	'availableEvents' => $availableEvents,
+        	'availableEvents' => $events,
             'duration' => $eventType->duration,
             'next' => action('ScheduleController@schedule', ['user' => $user, 'event' => $eventType, 'start' => $next]),
-            'previous' => ($start > Carbon::today($user->timezone)) ? action('ScheduleController@schedule', ['user' => $user, 'event' => $eventType, 'start' => $previous]) : null,
+            'previous' => ($start > Carbon::today($timezone)) ? action('ScheduleController@schedule', ['user' => $user, 'event' => $eventType, 'start' => $previous]) : null,
         ]);
     }
 

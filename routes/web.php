@@ -14,6 +14,7 @@
 Route::domain('{user}.'.config('app.domain'))->group(function () {
 	Route::get('/', 'ScheduleController@types')->name('types');
 	Route::get('/s/{eventType}/{start?}', 'ScheduleController@schedule')->name('schedule');
+	Route::post('/s/{eventType}/{start?}', 'ScheduleController@setTimezone')->name('schedule-timezone');
 	Route::get('/book/{eventType}/{datetime}', 'ScheduleController@book')->name('book');
 	Route::post('/book', 'ScheduleController@create')->name('create');	
 });
@@ -27,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/select', 'UserController@showCalendars')->name('select');
 	Route::get('/settings', 'UserController@showSettings')->name('settings');
 	Route::post('/settings/slug', 'UserController@updateSlug')->name('settings-slug');
+	Route::post('/settings/timezone', 'UserController@updateTimezone')->name('settings-timezone');
 	Route::post('/select', 'UserController@selectCalendar')->name('submit-select');
 	Route::get('/archive', 'UserController@archiveNotifications')->name('archive');
 	Route::resource('eventtype', 'EventTypeController');

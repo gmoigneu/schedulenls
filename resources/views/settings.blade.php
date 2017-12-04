@@ -13,6 +13,28 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-body">
+				<form action="/settings/timezone" class="form-material" method="POST">
+					{{ csrf_field() }}
+					<div class="form-group">
+						<label for="timezone">Timezone</label>
+						<select class="form-control" name="timezone">
+						@foreach ($timezones as $timezone)
+							<option {{ (Auth::user()->timezone == $timezone) ? ' selected' : '' }} value="{{ $timezone }}">{{ $timezone }}</option>
+						@endforeach
+						</select>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success btn-rounded">Save timezone</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-body">
 				<form action="/settings/slug" class="form-material" method="POST">
 					{{ csrf_field() }}
 					<div class="form-group">

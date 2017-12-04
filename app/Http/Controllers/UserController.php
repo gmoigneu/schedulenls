@@ -7,6 +7,7 @@ use App\Calendar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SettingsSlug;
+use App\Http\Requests\SettingsTimezone;
 
 
 class UserController extends Controller
@@ -118,13 +119,22 @@ class UserController extends Controller
 	public function showSettings()
 	{
 		return view('settings', [
-			'user' => Auth::user()
+			'user' => Auth::user(),
+			'timezones' => \DateTimeZone::listIdentifiers(\DateTimeZone::ALL)
 		]);
 	}
 
 	public function updateSlug(SettingsSlug $request)
 	{
 		Auth::user()->slug = $request->get('slug');
+		Auth::user()->save();
+
+		return redirect()->route('settings');
+	}
+
+	public function updateTimezone(SettingsTimezone $request)
+	{
+		Auth::user()->timezone = $request->get('timezone');
 		Auth::user()->save();
 
 		return redirect()->route('settings');

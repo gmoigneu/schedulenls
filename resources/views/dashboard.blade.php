@@ -41,7 +41,7 @@
 								@foreach ($events as $event)
 									<tr>
 										<td>
-											{{ \Carbon\Carbon::parse($event->start) }}
+											{{ \Carbon\Carbon::parse($event->start)->setTimezone(Auth::user()->timezone) }}
 										</td>
 										<td>{{ $event->name }} ({{ $event->organization }})</td>
 										<td>{{ $event->eventType->name }} ({{ \Carbon\CarbonInterval::minutes($event->eventType->duration) }} minutes</td>

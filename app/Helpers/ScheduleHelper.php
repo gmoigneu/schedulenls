@@ -37,7 +37,7 @@ class ScheduleHelper {
         
         $this->weekSchedule = [
             'Mon' => [
-                ['9:30', '12:00'],
+                ['9:00', '12:00'],
                 ['14:00', '17:00'],
             ],
             'Tue' => [
@@ -166,15 +166,10 @@ class ScheduleHelper {
     {
         $events = $this->getGoogleEvents($start, $end);
         $availableEvents = [];
-        $placeholders = new \DatePeriod($start, new \DateInterval('P1D'), $end);
-        foreach ($placeholders as $placeholder) {
-            $availableEvents[$placeholder->format('Y-m-d')] = null;
-        }
-
 
         // Create all potential events
         foreach (new \DatePeriod($start, CarbonInterval::days(1), $end) as $day) {
-            if ($day < Carbon::today()) {
+            if ($day < Carbon::today($this->user->timezone)) {
                 continue;
             }
 
@@ -190,6 +185,7 @@ class ScheduleHelper {
                 $rangeEnd->timezone($this->user->timezone);
                 $rangeEnd->setTime($rangeEndTimeHour, $rangeEndTimeMinute, 0);
                 $period = new DatePeriodHelper($rangeStart, $this->eventInterval, $rangeEnd);
+                
 
                 // Loop through the period and check if it overlaps an event
                 foreach ($period as $potentialEvent) {
@@ -201,7 +197,7 @@ class ScheduleHelper {
                         break;
                     }
 
-                    $potentialPeriod = new \DatePeriod($potentialEvent, CarbonInterval::minutes(1), $potentialEventEnd);
+                    $potentialPeriod = new \DatePeriod($potentialEvent, CarbonInterval::minutes(15), $potentialEventEnd);
                     
                     $available = true;
                     foreach ($events as $event) {
@@ -210,12 +206,11 @@ class ScheduleHelper {
                         }
                     }
                     if ($available) {
-                        $availableEvents[$potentialPeriod->start->format('Y-m-d')][] = $potentialPeriod;
+                        $availableEvents[] = $potentialPeriod;
                     }
                 }
             }
         }
-
         return $availableEvents;
     }
 
