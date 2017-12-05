@@ -48,7 +48,8 @@ class EventGuestValidated extends Notification
                     ->greeting('Well done.')
                     ->line('You will be meeting with: ' . $this->event->user->email)
                     ->line('Type: ' . $this->event->eventType->name . ' (' . \Carbon\CarbonInterval::minutes($this->event->eventType->duration) . ')')
-                    ->line('Date: ' . \Carbon\Carbon::parse($this->event->start)->toDayDateTimeString());
+                    ->line('Date: ' . \Carbon\Carbon::parse($this->event->start)->toDayDateTimeString())
+                    ->line('Summary: ' . $this->event->summary);
     }
 
     /**

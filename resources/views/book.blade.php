@@ -49,6 +49,9 @@
                         <input type="text" class="form-control" placeholder="Organization" name="organization" value="{{ old('organization', '') }}"/>
                     </div>
                     <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Meeting Summary" name="summary" value="{{ old('summary', '') }}"/>
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="btn btn-success btn-rounded">Book this meeting</button>
                     </div>
                 </form>

@@ -148,6 +148,7 @@ class ScheduleController extends Controller
             $request->get('name'),
             $request->get('organization'),
             $request->get('email'),
+            $request->get('summary'),
             $eventType->id,
             $request->ip()
         );
@@ -163,9 +164,12 @@ class ScheduleController extends Controller
 
     public function confirm(User $user, Event $event, $token)
     {
-        
         if ($event->token != $token) {
             abort(403);
+        }
+
+        if($event->confirmed == 1) {
+            abort(404);
         }
 
         $event->confirmed = 1;
@@ -175,7 +179,7 @@ class ScheduleController extends Controller
         $event->notify(new EventGuestValidated($event));
 
         // This slot is available
-        return view('validate', [
+        return view('confirm', [
             'event' => $event,
             'user' => $event->user
         ]);

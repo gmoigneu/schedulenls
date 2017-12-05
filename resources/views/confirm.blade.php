@@ -21,7 +21,8 @@ Your event has been created !
                 <ul>
                     <li>Start: {{ \Carbon\Carbon::parse($event->start)->toDayDateTimeString() }}</li>
                     <li>End: {{ \Carbon\Carbon::parse($event->end)->toDayDateTimeString() }}</li>
-                    <li>Duration: {{ \App\Helpers\DateIntervalHelper::dateIntervalToMinutes($event->eventType->duration) }} minutes.</p>
+                    <li>Duration: {{ \App\Helpers\DateIntervalHelper::dateIntervalToMinutes($event->eventType->duration) }} minutes.</li>
+                    <li>Summary: {{ $event->summary }}</li>
                 </ul>
 
                 <p>An invite has been dispatched to your mailbox.</p>

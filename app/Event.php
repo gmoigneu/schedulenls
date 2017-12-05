@@ -9,7 +9,7 @@ class Event extends Model {
     use Notifiable;
 
 	protected $fillable = [
-		'name', 'email', 'organization', 'start', 'end', 'google_event', 'user_id', 'event_type_id', 'ip', 'token', 'confirmed'
+		'name', 'email', 'organization', 'start', 'end', 'google_event', 'user_id', 'event_type_id', 'ip', 'token', 'confirmed', 'summary'
 	];
 	
 	/**

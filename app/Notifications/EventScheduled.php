@@ -49,6 +49,7 @@ class EventScheduled extends Notification
                     ->line($this->event->name . ' (' . $this->event->email . ') from ' . $this->event->organization . ' requested a new meeting.')
                     ->line('Type: ' . $this->event->eventType->name . ' (' . \Carbon\CarbonInterval::minutes($this->event->eventType->duration) . ')')
                     ->line('Date: ' . \Carbon\Carbon::parse($this->event->start)->toDayDateTimeString())
+                    ->line('Summary: ' . $this->event->summary)
                     ->action('Go to your dashboard', route('dashboard'));
     }
 

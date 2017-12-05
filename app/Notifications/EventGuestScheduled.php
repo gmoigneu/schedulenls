@@ -49,6 +49,7 @@ class EventGuestScheduled extends Notification
                     ->line('With: ' . $this->event->user->email)
                     ->line('Type: ' . $this->event->eventType->name . ' (' . \Carbon\CarbonInterval::minutes($this->event->eventType->duration) . ')')
                     ->line('Date: ' . \Carbon\Carbon::parse($this->event->start)->toDayDateTimeString())
+                    ->line('Summary: ' . $this->event->summary)
                     ->line('')
                     ->line('Please click the following button to confirm the meeting.')
                     ->action('Validate this event!' , route('confirm', ['user' => $this->event->user, 'event' => $this->event, 'token' => $this->event->token]));

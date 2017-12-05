@@ -73,13 +73,13 @@ class ScheduleHelper {
         $this->service = new \Google_Service_Calendar($this->client);
     }
 
-    public function createEvent($start, $end, $name, $organization, $email, $eventType, $ip)
+    public function createEvent($start, $end, $name, $organization, $email, $summary, $eventType, $ip)
     {
         // Create the event
         $event = new \Google_Service_Calendar_Event(array(
             'summary' => $name . ' (' . $organization . ')',
             'location' => '',
-            'description' => '',
+            'description' => $summary,
             'start' => array(
                 'dateTime' => $start->toAtomString(),
                 'timeZone' => $this->user->timezone,
@@ -114,6 +114,7 @@ class ScheduleHelper {
             'name' => $name,
             'email' => $email,
             'organization' => $organization,
+            'summary' => $summary,
             'start' => $start->toAtomString(),
             'end' => $end->toAtomString(),
             'google_event' => json_encode($event),

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateEventsStatus extends Migration
+class UpdateEventsSummary extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class UpdateEventsStatus extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('ip', 100);
-            $table->string('token', 16);
-            $table->integer('confirmed')->default(0);
+            $table->text('summary');
         });
     }
 
@@ -28,9 +26,7 @@ class UpdateEventsStatus extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->dropColumn('ip');
-            $table->dropColumn('token');
-            $table->dropColumn('confirmed');
+            $table->dropColumn('summary');
         });
     }
 }
