@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SettingsSlug;
 use App\Http\Requests\SettingsTimezone;
+use App\Http\Requests\SettingsAvaibility;
 
 
 class UserController extends Controller
@@ -135,6 +136,14 @@ class UserController extends Controller
 	public function updateTimezone(SettingsTimezone $request)
 	{
 		Auth::user()->timezone = $request->get('timezone');
+		Auth::user()->save();
+
+		return redirect()->route('settings');
+	}
+
+	public function updateAvaibility(SettingsAvaibility $request)
+	{
+		Auth::user()->avaibility = $request->get('avaibility');
 		Auth::user()->save();
 
 		return redirect()->route('settings');

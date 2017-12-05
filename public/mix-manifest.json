@@ -1,9 +1,8 @@
 {
-    "/css/style.css": "/css/style.css",
-    "/css/dashboard4.css": "/css/dashboard4.css",
-    "/css/blue.css": "/css/blue.css",
-    "/fonts/themify.eot": "/fonts/themify.eot",
-    "/fonts/themify.svg": "/fonts/themify.svg",
-    "/fonts/themify.ttf": "/fonts/themify.ttf",
-    "/fonts/themify.woff": "/fonts/themify.woff"
+    "/css/style.css": "/css/style.css?id=c6bdca410859bbd0533d",
+    "/fonts/themify.eot": "/fonts/themify.eot?id=a24790aa1a21c01510f9",
+    "/fonts/themify.svg": "/fonts/themify.svg?id=9c8e96ecc7fa01e6ebcd",
+    "/fonts/themify.ttf": "/fonts/themify.ttf?id=443140c343e9c0803091",
+    "/fonts/themify.woff": "/fonts/themify.woff?id=1b4cf3cb9228ff06ece5",
+    "/js/app.js": "/js/app.js?id=3400550a7479fe549070"
 }

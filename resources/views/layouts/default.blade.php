@@ -11,19 +11,8 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('images/favicon.png') }}">
     <title>{{ env('APP_NAME') }}</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ url('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url('plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet">
-    <!-- This page CSS -->
-    <!-- Vector CSS -->
-    <link href="{{ url('plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
-    <!-- chartist CSS -->
-    <link href="{{ url('plugins/chartist-js/dist/chartist.min.css') }}" rel="stylesheet">
-    <link href="{{ url('plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css') }}" rel="stylesheet">
 
-    <link href="{{ url('css/style.css') }}" rel="stylesheet">
-    <link href="{{ url('css/dashboard4.css') }}" rel="stylesheet">
-    <link href="{{ url('css/blue.css') }}" id="theme" rel="stylesheet">
+    <link href="{{ mix('css/style.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -164,24 +153,9 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="{{ url('plugins/jquery/jquery.min.js') }}"></script>
-    <!-- Bootstrap popper Core JavaScript -->
-    <script src="{{ url('plugins/bootstrap/js/popper.min.js') }}"></script>
-    <script src="{{ url('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="{{ url('js/perfect-scrollbar.jquery.min.js') }}"></script>
-    <!--Wave Effects -->
-    <script src="{{ url('js/waves.js') }}"></script>
-    <!--Menu sidebar -->
-    <script src="{{ url('js/sidebarmenu.js') }}"></script>
-    <!--Custom JavaScript -->
-    <script src="{{ url('js/custom.min.js') }}"></script>
 
-    <!--sparkline JavaScript -->
-    <script src="{{ url('plugins/sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
+
 </body>
 
 </html>
