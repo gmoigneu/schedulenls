@@ -17,6 +17,7 @@ Route::domain('{user}.'.config('app.domain'))->group(function () {
 	Route::post('/s/{eventType}/{start?}', 'ScheduleController@setTimezone')->name('schedule-timezone');
 	Route::get('/book/{eventType}/{datetime}', 'ScheduleController@book')->name('book');
 	Route::post('/book', 'ScheduleController@create')->name('create');	
+	Route::get('/confirm/{event}/{token}', 'ScheduleController@confirm')->name('confirm');	
 });
 
 Route::get('/', 'HomeController@index')->name('login');

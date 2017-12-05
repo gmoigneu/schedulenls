@@ -61,7 +61,7 @@ class UserController extends Controller
     	}
     	
         return view('dashboard', [
-            'events' => Auth::user()->events
+            'events' => Auth::user()->events()->confirmed()->get()
         ]);
     }
 

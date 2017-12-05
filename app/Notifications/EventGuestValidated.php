@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\Event;
 
-class EventGuestScheduled extends Notification
+class EventGuestValidated extends Notification
 {
     use Queueable;
 
@@ -44,14 +44,11 @@ class EventGuestScheduled extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Your event is waiting for your validation')
-                    ->greeting('You have requested a meeting.')
-                    ->line('With: ' . $this->event->user->email)
+                    ->subject('Your event has been scheduled')
+                    ->greeting('Well done.')
+                    ->line('You will be meeting with: ' . $this->event->user->email)
                     ->line('Type: ' . $this->event->eventType->name . ' (' . \Carbon\CarbonInterval::minutes($this->event->eventType->duration) . ')')
-                    ->line('Date: ' . \Carbon\Carbon::parse($this->event->start)->toDayDateTimeString())
-                    ->line('')
-                    ->line('Please click the following button to confirm the meeting.')
-                    ->action('Validate this event!' , route('confirm', ['user' => $this->event->user, 'event' => $this->event, 'token' => $this->event->token]));
+                    ->line('Date: ' . \Carbon\Carbon::parse($this->event->start)->toDayDateTimeString());
     }
 
     /**

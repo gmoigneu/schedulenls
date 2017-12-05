@@ -73,7 +73,7 @@ class ScheduleHelper {
         $this->service = new \Google_Service_Calendar($this->client);
     }
 
-    public function createEvent($start, $end, $name, $organization, $email, $eventType)
+    public function createEvent($start, $end, $name, $organization, $email, $eventType, $ip)
     {
         // Create the event
         $event = new \Google_Service_Calendar_Event(array(
@@ -118,7 +118,10 @@ class ScheduleHelper {
             'end' => $end->toAtomString(),
             'google_event' => json_encode($event),
             'event_type_id' => $eventType,
-            'user_id' => $this->user->id
+            'user_id' => $this->user->id,
+            'ip' => $ip,
+            'confirmed' => 0,
+            'token' => str_random(16),
         ]);
 
         return $userEvent;

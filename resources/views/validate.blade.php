@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Your event is awaiting your validation.
+Your event has been created !
 @endsection
 
 @section('content')
@@ -16,13 +16,15 @@ Your event is awaiting your validation.
 	<div class="col-12">
 		<div class="card">
 			<div class="card-body">
-                <p>You requested a meeting with {{ $event->user->email }} on:</p>
-                <p><strong>We've just sent you an email to validate your address. Please click on the email confirmation link to confirm the meeting!</strong></p>
+                <p>You will be meeting with {{ $event->user->email }} on:</p>
+
                 <ul>
                     <li>Start: {{ \Carbon\Carbon::parse($event->start)->toDayDateTimeString() }}</li>
                     <li>End: {{ \Carbon\Carbon::parse($event->end)->toDayDateTimeString() }}</li>
                     <li>Duration: {{ \App\Helpers\DateIntervalHelper::dateIntervalToMinutes($event->eventType->duration) }} minutes.</p>
                 </ul>
+
+                <p>An invite has been dispatched to your mailbox.</p>
             </div>
         </div>
     </div>

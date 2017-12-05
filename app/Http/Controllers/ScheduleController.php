@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
  
 use App\User;
+use App\Event;
 use App\Calendar;
 use App\EventType;
 use App\Guest;
@@ -16,6 +17,7 @@ use App\Http\Requests\StoreEvent;
 use App\Http\Requests\TimezoneRequest;
 use App\Notifications\EventScheduled;
 use App\Notifications\EventGuestScheduled;
+use App\Notifications\EventGuestValidated;
 
 class ScheduleController extends Controller
 {
@@ -146,16 +148,36 @@ class ScheduleController extends Controller
             $request->get('name'),
             $request->get('organization'),
             $request->get('email'),
-            $eventType->id
+            $eventType->id,
+            $request->ip()
         );
 
-        $user->notify(new EventScheduled($event));
         $event->notify(new EventGuestScheduled($event));
 
         // This slot is available
         return view('create', [
             'event' => $event,
             'user' => $user
+        ]);
+    }
+
+    public function confirm(User $user, Event $event, $token)
+    {
+        
+        if ($event->token != $token) {
+            abort(403);
+        }
+
+        $event->confirmed = 1;
+        $event->save();
+
+        $event->user->notify(new EventScheduled($event));
+        $event->notify(new EventGuestValidated($event));
+
+        // This slot is available
+        return view('validate', [
+            'event' => $event,
+            'user' => $event->user
         ]);
     }
 }

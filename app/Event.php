@@ -9,7 +9,7 @@ class Event extends Model {
     use Notifiable;
 
 	protected $fillable = [
-		'name', 'email', 'organization', 'start', 'end', 'google_event', 'user_id', 'event_type_id'
+		'name', 'email', 'organization', 'start', 'end', 'google_event', 'user_id', 'event_type_id', 'ip', 'token', 'confirmed'
 	];
 	
 	/**
@@ -26,5 +26,16 @@ class Event extends Model {
     public function eventType()
     {
         return $this->belongsTo('App\EventType');
+    }
+
+    /**
+     * Scope a query to only include confirmed events.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeConfirmed($query)
+    {
+        return $query->where('confirmed', '=', 1);
     }
 }
